@@ -34,10 +34,11 @@ function mostraCronometro() {
 
 //Funções de evento
 btnLigar.addEventListener('click', () => {
-    if(contando===true){return;}    //Se o cronômetro já estiver contando, não faz nada
+    //if(contando===true){return;}    //Se o cronômetro já estiver contando, não faz nada
     idContagem = setInterval(mostraCronometro, 100);
     btnPausar.innerText = 'Pausar Cronômetro';
     contando = true;
+    btnLigar.disabled = true;       //Desliga o botão após acionado
 });
 
 btnPausar.addEventListener('click', () => {
@@ -60,4 +61,5 @@ btnResetar.addEventListener('click', () => {
     cronometro.innerHTML = '00:00:00.0';        //Reseta o cronômetro
     decSeg = 0;                                 //Reseta a variável de controle
     contando = false;                           //Altera a variável de controle
+    btnLigar.disabled = false;                  //Reativa o botão ligar após resetar o cronômetro;
 });
